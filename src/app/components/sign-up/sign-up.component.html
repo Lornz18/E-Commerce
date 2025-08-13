@@ -1,0 +1,42 @@
+<div class="h-screen flex items-center justify-center w-full">
+  <div class="w-[30rem]">
+    <p-card styleClass="!bg-white !shadow-xl !border !text-primary !p-[1rem]">
+      <ng-template #title>
+        <h1 class="text-black font-bold text-center text-[2rem] my-[1rem]">
+          Create An Account
+        </h1>
+      </ng-template>
+      <form [formGroup]="signUpForm" class="flex flex-col gap-3">
+        <p-iftalabel class="shadow-xl">
+          <input pInputText id="firstName" formControlName="firstName" />
+          <label for="firstName">First Name</label>
+        </p-iftalabel>
+        <p-iftalabel class="shadow-xl">
+          <input pInputText id="lastName" formControlName="lastName" />
+          <label for="lastName">Last Name</label>
+        </p-iftalabel>
+        <p-iftalabel class="shadow-xl">
+          <input pInputText id="email" formControlName="email" />
+          <label for="email">Email</label>
+        </p-iftalabel>
+        <p-iftalabel class="shadow-xl">
+          <p-password
+            inputId="password"
+            formControlName="password"
+            [toggleMask]="true"
+            styleClass="!w-full"
+          />
+          <label for="password">Password</label>
+        </p-iftalabel>
+        <p-button label="Sign In" styleClass="w-full mb-[1.5rem]" (click)="signUp()" [loading]="loading"/>
+
+        <span class="text-surface-500 text-md text-center">Or sign in with</span>
+        <div class="flex items-center justify-center gap-3">
+            <p-button icon="pi pi-google" [rounded]="true" styleClass="!w-[5rem] !rounded-[3rem] !text-red-500 !bg-red-100 !border-none"/>
+            <p-button icon="pi pi-facebook" [rounded]="true" styleClass="!w-[5rem] !rounded-[3rem] !text-blue-500 !bg-blue-100 !border-none"/>
+            <p-button icon="pi pi-apple" [rounded]="true" styleClass="!w-[5rem] !rounded-[3rem] !text-white !bg-surface-500 !border-none"/>
+        </div>
+      </form>
+    </p-card>
+  </div>
+</div>

@@ -1,0 +1,373 @@
+<div class="py-[1rem]">
+  <div class="container">
+    <h1 class="text-[24px] font-bold">{{ product.name }}</h1>
+    <div
+      class="flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between"
+    >
+      <div class="flex items-center gap-2">
+        <p-rating [(ngModel)]="product.rating" />
+        <p class="font-bold">{{ product.rating + ".00" }}</p>
+        <span class="text-surface-500">(99 reviews)</span>
+      </div>
+      <div class="flex items-center gap-2">
+        <p-button
+          label="Share"
+          icon="pi pi-share-alt"
+          variant="text"
+          styleClass="text-black!"
+        />
+        <p-button
+          label="Save"
+          icon="pi pi-heart"
+          variant="text"
+          styleClass="text-black!"
+        />
+      </div>
+    </div>
+
+    <div class="grid grid-flow-col grid-rows-1 gap-4 my-[1rem] h-[50vh]">
+      <img
+        class="rounded w-full h-full drop-shadow-xl object-cover row-span-2 col-span-2"
+        [src]="
+          'https://primefaces.org/cdn/primeng/images/demo/product/' +
+          product.image
+        "
+        [alt]="product.name"
+      />
+      <img
+        class="rounded w-full h-full drop-shadow-xl object-cover row-span-1"
+        [src]="
+          'https://primefaces.org/cdn/primeng/images/demo/product/' +
+          product.image
+        "
+        [alt]="product.name"
+      />
+      <img
+        class="rounded w-full h-full drop-shadow-xl object-cover row-span-1"
+        [src]="
+          'https://primefaces.org/cdn/primeng/images/demo/product/' +
+          product.image
+        "
+        [alt]="product.name"
+      />
+      <img
+        class="rounded w-full h-full drop-shadow-xl object-cover row-span-1"
+        [src]="
+          'https://primefaces.org/cdn/primeng/images/demo/product/' +
+          product.image
+        "
+        [alt]="product.name"
+      />
+      <img
+        class="rounded w-full h-full drop-shadow-xl object-cover object-center row-span-1"
+        [src]="
+          'https://primefaces.org/cdn/primeng/images/demo/product/' +
+          product.image
+        "
+        [alt]="product.name"
+      />
+    </div>
+
+    <div
+      class="flex flex-col lg:flex-row items-start justify-between gap-4 my-[1rem]"
+    >
+      <div class="lg:w-[70%] h-full">
+        <h1 class="text-[24px] font-bold">Product Description</h1>
+        <p class="text-surface-300">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem lorem
+          aliquam sed lacinia quis. Nibh dictumst vulputate odio pellentesque
+          sit quis ac, sit ipsum. Sit rhoncus velit in sed massa arcu sit eu.
+          Vitae et vitae eget lorem non dui. Sollicitudin ut mi adipiscing duis.
+          Convallis in semper laoreet nibh leo. Vivamus malesuada ipsum pulvinar
+          non rutrum risus dui, risus. Purus massa velit iaculis tincidunt
+          tortor, risus, scelerisque risus. In at lorem pellentesque orci aenean
+          dictum dignissim in. Aenean pulvinar diam interdum ullamcorper. Vel
+          urna, tortor, massa metus purus metus. Maecenas mollis in velit auctor
+          cursus scelerisque eget.
+        </p>
+        <div class="w-fit my-[1rem]">
+          <ul class="grid grid-cols-2 gap-x-[5rem] gap-y-4 text-surface-300">
+            <li class="flex items-start">
+              <i
+                class="pi pi-truck"
+                style="font-size: 1rem; margin-right: 1rem; color: #636ae8"
+              ></i>
+              <span>Free Delivery</span>
+            </li>
+            <li class="flex items-start">
+              <i
+                class="pi pi-reply"
+                style="font-size: 1rem; margin-right: 1rem; color: #379ae6"
+              ></i>
+              <span>7 days return</span>
+            </li>
+            <li class="flex items-start">
+              <i
+                class="pi pi-globe"
+                style="font-size: 1rem; margin-right: 1rem; color: #e8618c"
+              ></i>
+              <span>Made in USA</span>
+            </li>
+            <li class="flex items-start">
+              <i
+                class="pi pi-trophy"
+                style="font-size: 1rem; margin-right: 1rem; color: #efb034"
+              ></i>
+              <span>2 years guarantee</span>
+            </li>
+            <li class="flex items-start">
+              <i
+                class="pi pi-comment"
+                style="font-size: 1rem; margin-right: 1rem; color: #de3b40"
+              ></i>
+              <span>100% authentic</span>
+            </li>
+            <li class="flex items-start">
+              <i
+                class="pi pi-verified"
+                style="font-size: 1rem; margin-right: 1rem; color: #1dd75b"
+              ></i>
+              <span class="text-left">24/7 customer support</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="w-full lg:w-[30%]">
+        <p-card class="drop-shadow-xl">
+          <div class="flex flex-col items-center">
+            <div
+              class="rounded-full bg-primary flex items-center justify-center w-[3rem] h-[3rem] text-white"
+            >
+              <i class="pi pi-ticket"></i>
+            </div>
+            <h1 class="text-lg text-primary">Win Big!</h1>
+            <p class="text-gray-500">Enter our exclusive raffle</p>
+          </div>
+          <div class="price-section my-[1rem]">
+            <div class="price-label">Entry Price</div>
+            <div class="price"><span class="currency">₱</span>65.00</div>
+          </div>
+          <!-- <div class="flex flex-col bg-gray-500">
+            <p class="text-gray-500">Entry Price</p>
+            <h1 class="text-[1.5rem] font-bold text-primary text-right">
+              {{ product.price | currency : "PHP" }}
+            </h1>
+          </div> -->
+          <div class="flex flex-col gap-3">
+            <p-button label="Submit Entry" styleClass="w-full" (onClick)="entry()" />
+            <p-button
+              label="Add to Cart"
+              styleClass="w-full"
+              severity="secondary"
+            />
+          </div>
+        </p-card>
+      </div>
+    </div>
+
+    <p-divider />
+
+    <div>
+      <div
+        class="flex flex-col lg:flex-row items-center justify-between my-[2rem]"
+      >
+        <div class="flex items-center gap-2">
+          <h1 class="text-[24px] font-bold">Reviews</h1>
+          <p-rating [(ngModel)]="product.rating" [stars]="1" />
+          <p class="font-bold">{{ product.rating + ".00" }}</p>
+          <span class="text-surface-500">(99 reviews)</span>
+        </div>
+        <p-button
+          label="Show All Reviews"
+          icon="pi pi-angle-right"
+          iconPos="right"
+          variant="text"
+        />
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-[2rem]">
+        <div>
+          <div class="flex items-start gap-3 mb-[1rem]">
+            <p-avatar
+              image="https://i.pravatar.cc/150"
+              size="large"
+              shape="circle"
+            >
+            </p-avatar>
+            <div>
+              <div class="flex items-center gap-2">
+                <p class="font-bold">Jay Rutherford</p>
+                <span class="text-surface-500 text-md">3d Ago</span>
+              </div>
+              <p-rating [(ngModel)]="rate" />
+            </div>
+          </div>
+          <p>
+            Nulla laboris fugiat fugiat minim minim excepteur eiusmod quis.
+            Laborum est minim id cillum nostrud cillum consectetur.
+          </p>
+        </div>
+        <div>
+          <div class="flex items-start gap-3 mb-[1rem]">
+            <p-avatar
+              image="https://i.pravatar.cc/150"
+              size="large"
+              shape="circle"
+            >
+            </p-avatar>
+            <div>
+              <div class="flex items-center gap-2">
+                <p class="font-bold">Jay Rutherford</p>
+                <span class="text-surface-500 text-md">3d Ago</span>
+              </div>
+              <p-rating [(ngModel)]="rate" />
+            </div>
+          </div>
+          <p>
+            Nulla laboris fugiat fugiat minim minim excepteur eiusmod quis.
+            Laborum est minim id cillum nostrud cillum consectetur.
+          </p>
+        </div>
+        <div>
+          <div class="flex items-start gap-3 mb-[1rem]">
+            <p-avatar
+              image="https://i.pravatar.cc/150"
+              size="large"
+              shape="circle"
+            >
+            </p-avatar>
+            <div>
+              <div class="flex items-center gap-2">
+                <p class="font-bold">Jay Rutherford</p>
+                <span class="text-surface-500 text-md">3d Ago</span>
+              </div>
+              <p-rating [(ngModel)]="rate" />
+            </div>
+          </div>
+          <p>
+            Nulla laboris fugiat fugiat minim minim excepteur eiusmod quis.
+            Laborum est minim id cillum nostrud cillum consectetur.
+          </p>
+        </div>
+        <div>
+          <div class="flex items-start gap-3 mb-[1rem]">
+            <p-avatar
+              image="https://i.pravatar.cc/150"
+              size="large"
+              shape="circle"
+            >
+            </p-avatar>
+            <div>
+              <div class="flex items-center gap-2">
+                <p class="font-bold">Jay Rutherford</p>
+                <span class="text-surface-500 text-md">3d Ago</span>
+              </div>
+              <p-rating [(ngModel)]="rate" />
+            </div>
+          </div>
+          <p>
+            Nulla laboris fugiat fugiat minim minim excepteur eiusmod quis.
+            Laborum est minim id cillum nostrud cillum consectetur.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <p-divider />
+
+    <div class="">
+      <div
+        class="flex flex-col lg:flex-row items-center justify-between my-[2rem]"
+      >
+        <div class="flex items-center gap-2">
+          <h1 class="text-[24px] font-bold">Related products</h1>
+        </div>
+        <p-button
+          label="Show More"
+          icon="pi pi-angle-right"
+          iconPos="right"
+          variant="text"
+        />
+      </div>
+      <p-dataview #dv [value]="products$ | async" layout="grid" class="banner">
+        <ng-template #grid let-items>
+          <div class="grid lg:grid-cols-4 gap-5">
+            <div
+              *ngFor="let product of items.slice(0, 4); let i = index"
+              data-aos="fade-down"
+              [attr.data-aos-delay]="getAosDelay(i)"
+              data-aos-duration="1000"
+              class="p-2"
+              (click)="navigateToDetails(product)"
+            >
+              <div class="rounded flex flex-col">
+                <div class="flex justify-center rounded">
+                  <div class="relative w-full mx-auto">
+                    <img
+                      class="rounded w-full drop-shadow-xl h-[15rem] object-cover"
+                      [src]="
+                        'https://primefaces.org/cdn/primeng/images/demo/product/' +
+                        product.image
+                      "
+                      [alt]="product.name"
+                    />
+                    <!-- <p-tag
+                                          [value]="product.inventoryStatus"
+                                          [severity]="getSeverity(product)"
+                                          class="absolute"
+                                          styleClass="dark:!bg-surface-900"
+                                          [style.left.px]="4"
+                                          [style.top.px]="4"
+                                      /> -->
+                  </div>
+                </div>
+                <div class="pt-6">
+                  <div
+                    class="flex flex-row justify-between products-start gap-2"
+                  >
+                    <div>
+                      <span
+                        class="font-medium text-surface-500 dark:text-surface-400 text-sm"
+                        >{{ product.category }}</span
+                      >
+                      <div class="text-lg font-medium mt-1">
+                        {{ product.name }}
+                      </div>
+                    </div>
+                    <div class="p-1" style="height: 100%">
+                      <div
+                        class="flex products-center gap-2 justify-center py-1 px-2"
+                      >
+                        <span class="text-dark font-medium text-sm">{{
+                          product.rating
+                        }}</span>
+                        <i class="pi pi-star-fill text-yellow-500"></i>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="flex flex-col gap-6 mt-6">
+                    <span class="text-base text-surface-400"
+                      >Price: {{ product.price | currency : "PHP" }}</span
+                    >
+                    <span class="text-base text-surface-400"
+                      >Slots: {{ product.slots }} Available</span
+                    >
+                    <div class="flex gap-2">
+                      <button
+                        pButton
+                        icon="pi pi-shopping-cart"
+                        label="Buy Now"
+                        [disabled]="product.inventoryStatus === 'OUTOFSTOCK'"
+                        class="flex-auto whitespace-nowrap"
+                      ></button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </ng-template>
+      </p-dataview>
+    </div>
+  </div>
+</div>

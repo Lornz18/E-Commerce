@@ -1,0 +1,282 @@
+<!-- Main container for the settings page -->
+<div class="container">
+  <!-- PrimeNG TabView for navigation -->
+  <!-- 
+    To style the active tab underline and text color to purple as in the image (e.g., #8A74F9),
+    you'll need custom CSS. For example, in your component's SCSS file or global styles:
+    :host ::ng-deep .custom-settings-tabview .p-tabview-nav .p-tabview-ink-bar { background-color: #8A74F9 !important; }
+    :host ::ng-deep .custom-settings-tabview .p-tabview-nav li.p-highlight .p-tabview-nav-link { color: #8A74F9 !important; }
+  -->
+
+  <p-tabs value="0" class="w-full custom-tab my-[1rem]">
+    <p-tablist>
+      <p-tab value="0">General</p-tab>
+      <p-tab value="1">Notifications</p-tab>
+      <p-tab value="2">Members</p-tab>
+    </p-tablist>
+    <p-tabpanels>
+      <p-tabpanel header="General" value="0">
+        <div class="mt-6 grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <!-- Left Column: User Profile Card -->
+          <div
+            class="bg-white p-6 rounded-xl shadow-lg border-[.1rem] border-gray-200 h-fit"
+          >
+            <div class="flex flex-col items-center">
+              <!-- Profile Picture with Edit Icon -->
+              <div class="relative mb-4">
+                <!-- Replace with actual image source -->
+                <img
+                  src="https://i.pravatar.cc/128?u=jayrutherford"
+                  alt="Jay Rutherford"
+                  class="rounded-full w-32 h-32 object-cover border-4 border-pink-100"
+                />
+                <button
+                  aria-label="Edit profile picture"
+                  class="absolute bottom-1 right-1 bg-white text-blue-600 rounded-full p-0 w-9 h-9 flex items-center justify-center shadow-md hover:bg-gray-100 border-2 border-blue-500"
+                >
+                  <i class="pi pi-pencil text-lg"></i>
+                </button>
+              </div>
+              <h2 class="text-2xl font-semibold text-gray-800">
+                Jay Rutherford
+              </h2>
+              <p class="text-sm text-gray-500 mb-3">Professional title</p>
+              <p
+                class="text-xs text-gray-500 text-center mb-6 px-2 leading-relaxed"
+              >
+                Incididunt dolore ut aliquip culpa id cupidatat mollit dolore
+                sint esse non c
+              </p>
+            </div>
+            <!-- Profile Link Input -->
+            <div>
+              <label
+                for="profileLink"
+                class="block text-sm font-medium text-gray-700 mb-1"
+                >Profile link</label
+              >
+              <div class="p-inputgroup">
+                <input
+                  type="text"
+                  pInputText
+                  id="profileLink"
+                  value="https://www.profilelink.com"
+                  class="p-inputtext-sm bg-gray-50 focus:bg-white"
+                />
+                <button
+                  type="button"
+                  pButton
+                  icon="pi pi-copy"
+                  class="p-button-secondary p-button-sm"
+                ></button>
+              </div>
+            </div>
+          </div>
+          <!-- Right Column: Settings Form -->
+          <div class="lg:col-span-2">
+            <div
+              class="bg-white p-6 sm:p-8 rounded-xl shadow-lg border-[.1rem] border-gray-200"
+            >
+              <form>
+                <!-- Profile Section -->
+                <h3 class="text-xl font-semibold text-gray-900 mb-6">
+                  Profile
+                </h3>
+                <div
+                  class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-4 mb-6"
+                >
+                  <div>
+                    <label
+                      for="fullName"
+                      class="block text-sm font-medium text-gray-700 mb-1"
+                      >Full name</label
+                    >
+                    <input
+                      type="text"
+                      pInputText
+                      id="fullName"
+                      placeholder="Your full name"
+                      class="w-full p-inputtext-sm bg-gray-50 focus:bg-white"
+                    />
+                  </div>
+                  <div>
+                    <label
+                      for="username"
+                      class="block text-sm font-medium text-gray-700 mb-1"
+                      >Username</label
+                    >
+                    <input
+                      type="text"
+                      pInputText
+                      id="username"
+                      placeholder="Your username"
+                      class="w-full p-inputtext-sm bg-gray-50 focus:bg-white"
+                    />
+                  </div>
+                </div>
+                <div class="mb-6">
+                  <label
+                    for="profession"
+                    class="block text-sm font-medium text-gray-700 mb-1"
+                    >Profession</label
+                  >
+                  <p-dropdown
+                    id="profession"
+                    [options]="professions"
+                    [(ngModel)]="selectedProfession"
+                    name="profession"
+                    placeholder="-Select your title-"
+                    optionLabel="name"
+                    styleClass="w-full p-inputtext-sm bg-gray-50 focus:bg-white"
+                    panelStyleClass="p-inputtext-sm"
+                  ></p-dropdown>
+                </div>
+                <div class="mb-6">
+                  <label
+                    for="location"
+                    class="block text-sm font-medium text-gray-700 mb-1"
+                    >Location</label
+                  >
+                  <p-dropdown
+                    id="location"
+                    [options]="locations"
+                    [(ngModel)]="selectedLocation"
+                    name="location"
+                    placeholder="-Select your location-"
+                    optionLabel="name"
+                    styleClass="w-full p-inputtext-sm bg-gray-50 focus:bg-white"
+                    panelStyleClass="p-inputtext-sm"
+                  ></p-dropdown>
+                </div>
+                <div class="mb-8">
+                  <label
+                    for="bio"
+                    class="block text-sm font-medium text-gray-700 mb-1"
+                    >Bio</label
+                  >
+                  <textarea
+                    id="bio"
+                    pInputTextarea
+                    placeholder="Input text"
+                    [rows]="4"
+                    class="w-full p-inputtext-sm bg-gray-50 focus:bg-white"
+                  ></textarea>
+                </div>
+
+                <hr class="my-8 border-gray-200" />
+
+                <!-- Account Section -->
+                <h3 class="text-xl font-semibold text-gray-900 mb-6">
+                  Account
+                </h3>
+                <div
+                  class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-4 mb-8"
+                >
+                  <div>
+                    <label
+                      for="email"
+                      class="block text-sm font-medium text-gray-700 mb-1"
+                      >Email</label
+                    >
+                    <input
+                      type="email"
+                      pInputText
+                      id="email"
+                      value="example.email@gmail.com"
+                      class="w-full p-inputtext-sm bg-gray-100 text-gray-500 cursor-not-allowed"
+                      readonly
+                    />
+                  </div>
+                  <div>
+                    <label
+                      for="password"
+                      class="block text-sm font-medium text-gray-700 mb-1"
+                      >Password</label
+                    >
+                    <p-password
+                      id="password"
+                      value="**************"
+                      [feedback]="false"
+                      styleClass="w-full"
+                      inputStyleClass="w-full p-inputtext-sm bg-gray-50 focus:bg-white"
+                    ></p-password>
+                  </div>
+                </div>
+
+                <hr class="my-8 border-gray-200" />
+
+                <!-- Preferences Section -->
+                <!-- 
+                To style checkbox color to purple when checked:
+                :host ::ng-deep .p-checkbox .p-checkbox-box.p-highlight { border-color: #8A74F9 !important; background: #8A74F9 !important; }
+                :host ::ng-deep .p-checkbox .p-checkbox-box.p-highlight:not(.p-disabled):hover { border-color: #705ada !important; background: #705ada !important; } /* Darker shade for hover */
+              -->
+                <h3 class="text-xl font-semibold text-gray-900 mb-6">
+                  Preferences
+                </h3>
+                <div class="space-y-5 mb-8">
+                  <div class="flex items-start">
+                    <p-checkbox
+                      [(ngModel)]="receiveUpdates"
+                      [binary]="true"
+                      inputId="cb_receiveUpdates"
+                      name="receiveUpdates"
+                    ></p-checkbox>
+                    <div class="ml-3 -mt-1">
+                      <label
+                        for="cb_receiveUpdates"
+                        class="block text-sm font-medium text-gray-800 cursor-pointer"
+                        >Receive monthly product updates</label
+                      >
+                      <p class="text-xs text-gray-500 mt-1">
+                        Quis nostrud exercitation ullamco laboris nisi ut
+                        aliquip ex ea commodo consequa
+                      </p>
+                    </div>
+                  </div>
+                  <div class="flex items-start">
+                    <p-checkbox
+                      [(ngModel)]="seeViewers"
+                      [binary]="true"
+                      inputId="cb_seeViewers"
+                      name="seeViewers"
+                    ></p-checkbox>
+                    <div class="ml-3 -mt-1">
+                      <label
+                        for="cb_seeViewers"
+                        class="block text-sm font-medium text-gray-800 cursor-pointer"
+                        >See info about people who view my profile</label
+                      >
+                      <p class="text-xs text-gray-500 mt-1">
+                        Quis nostrud exercitation ullamco laboris nisi ut
+                        aliquip ex ea commodo consequa
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Save Button -->
+                <div class="flex justify-end mt-10">
+                  <button
+                    type="button"
+                    pButton
+                    label="Save information"
+                    class="p-button-sm bg-[#8A74F9] hover:bg-[#705ada] border-[#8A74F9] hover:border-[#705ada] text-white"
+                  ></button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </p-tabpanel>
+
+      <!-- Placeholder Tab Panels for other sections -->
+      <p-tabpanel header="Notifications" value="1"
+        ><div class="p-4">Notifications content here...</div></p-tabpanel
+      >
+      <p-tabpanel header="Members" value="2"
+        ><div class="p-4">Members content here...</div></p-tabpanel
+      >
+    </p-tabpanels>
+  </p-tabs>
+</div>

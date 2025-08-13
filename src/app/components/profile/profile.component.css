@@ -1,0 +1,7 @@
+::ng-deep .custom-tab .p-tablist-tab-list {
+    background: none;
+}
+::ng-deep .custom-tab .p-tabpanels {
+    background: none;
+    padding: 0;
+}

@@ -1,0 +1,93 @@
+<div class="h-screen flex items-center justify-center w-full">
+  <div class="w-[30rem]">
+    <p-card styleClass="!bg-white !shadow-xl !border !text-primary !p-[1rem]">
+      <ng-template #title>
+        <h1 class="text-black font-bold text-center text-[2rem] my-[1rem]">
+          Sign In
+        </h1>
+      </ng-template>
+      <form [formGroup]="signInForm" class="flex flex-col gap-3 my-[1rem]">
+        <div class="flex flex-col gap-2">
+          <label for="email">Email</label>
+          <input
+            class="w-full"
+            pInputText
+            id="email"
+            variant="filled"
+            placeholder="Enter your email"
+            formControlName="email"
+          />
+        </div>
+        <div class="flex flex-col gap-2">
+          <label for="password">Password</label>
+          <p-password
+            inputId="password"
+            formControlName="password"
+            [toggleMask]="true"
+            placeholder="Enter your password"
+            variant="filled"
+            styleClass="!w-full"
+            formControlName="password"
+            [feedback]="false"
+          />
+        </div>
+
+        <div class="flex items-center justify-between">
+          <div class="flex items-center">
+            <p-checkbox
+              formControlName="rememberMe"
+              value="Remember Me"
+              inputId="rememberMe"
+            />
+            <label for="rememberMe" class="ml-2">Remember Me</label>
+          </div>
+          <p-button label="Forgot password?" variant="text" />
+        </div>
+      </form>
+
+      @if (visible()) {
+      <p-message [life]="3000" severity="error" styleClass="my-[1rem]"
+        >{{error}}</p-message
+      >
+      }
+      <p-button
+        label="Sign In"
+        styleClass="w-full"
+        (click)="signIn()"
+        [loading]="loading"
+      />
+
+      <p class="text-surface-500 text-center my-[1rem]">
+        Dont have an account?<p-button
+          label="Sign Up"
+          variant="text"
+          (onClick)="navigateToSignUp()"
+        />
+      </p>
+
+      <p-divider />
+
+      <span
+        class="text-surface-500 text-md text-center flex items-center justify-center"
+        >Or sign in with</span
+      >
+      <div class="flex items-center justify-center gap-3 my-[1rem]">
+        <p-button
+          icon="pi pi-google"
+          [rounded]="true"
+          styleClass="!w-[5rem] !rounded-[3rem] !text-red-500 !bg-red-100 !border-none"
+        />
+        <p-button
+          icon="pi pi-facebook"
+          [rounded]="true"
+          styleClass="!w-[5rem] !rounded-[3rem] !text-blue-500 !bg-blue-100 !border-none"
+        />
+        <p-button
+          icon="pi pi-apple"
+          [rounded]="true"
+          styleClass="!w-[5rem] !rounded-[3rem] !text-white !bg-surface-500 !border-none"
+        />
+      </div>
+    </p-card>
+  </div>
+</div>

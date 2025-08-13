@@ -1,0 +1,8 @@
+input{
+    width: 100% !important;
+}
+
+::ng-deep p-password input{
+    width: 100%;
+    padding-top: 1.5rem !important;
+}

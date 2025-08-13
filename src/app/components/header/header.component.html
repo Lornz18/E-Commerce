@@ -1,0 +1,48 @@
+<header class="container flex items-center justify-between relative">
+  <div class="flex items-center justify-between gap-5 cursor-pointer" (click)="navigateToHome()">
+    <p-image src="/Image.png" alt="Image" width="50" />
+    <h2 class="hidden md:block font-bold text-xl">Raffle Cart</h2>
+  </div>
+  <div class="flex items-center justify-between gap-3">
+    <div
+      class="absolute bottom-[-5rem] left-[50%] -translate-[50%] z-[999] md:relative md:bottom-0 md:left-0 md:translate-0"
+    >
+      <p-iconfield>
+        <p-inputicon styleClass="pi pi-search" />
+        <input type="text" pInputText placeholder="Search" />
+      </p-iconfield>
+    </div>
+    <div>
+      <p-button *ngIf="!isLoggedIn" label="Sign In" (click)="navigateToLogin()" />
+      <div *ngIf="isLoggedIn" class="flex items-center justify-between gap-3">
+        <p-button
+          icon="pi pi-bell"
+          aria-label="Notification"
+          [rounded]="true"
+          [text]="true"
+        />
+        <p-button
+          icon="pi pi-shopping-cart"
+          aria-label="Cart"
+          [rounded]="true"
+          [text]="true"
+        />
+        <p-avatar
+          image="https://i.pravatar.cc/150"
+          shape="circle"
+          styleClass="cursor-pointer"
+          (click)="menu.toggle($event)"
+        >
+        </p-avatar>
+      </div>
+    </div>
+
+    <p-menu
+      #menu
+      [model]="menuItems"
+      [popup]="true"
+      [autoZIndex]="true"
+      appendTo="body"
+    ></p-menu>
+  </div>
+</header>
